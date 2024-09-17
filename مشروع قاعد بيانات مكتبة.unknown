@@ -1,0 +1,193 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 16.4
+-- Dumped by pg_dump version 16.4
+
+-- Started on 2024-09-17 09:36:50
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 215 (class 1259 OID 16412)
+-- Name: Books; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Books" (
+    book_id integer NOT NULL
+);
+
+
+ALTER TABLE public."Books" OWNER TO postgres;
+
+--
+-- TOC entry 4854 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: TABLE "Books"; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public."Books" IS 'Book reviews and prices';
+
+
+--
+-- TOC entry 219 (class 1259 OID 16424)
+-- Name: Books_book_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public."Books_book_id_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public."Books_book_id_seq" OWNER TO postgres;
+
+--
+-- TOC entry 4855 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: Books_book_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public."Books_book_id_seq" OWNED BY public."Books".book_id;
+
+
+--
+-- TOC entry 216 (class 1259 OID 16415)
+-- Name: Members; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Members" (
+);
+
+
+ALTER TABLE public."Members" OWNER TO postgres;
+
+--
+-- TOC entry 4856 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: TABLE "Members"; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public."Members" IS 'جدول يشرح الاعضاء المستعيرين وفترة الاستعارة ';
+
+
+--
+-- TOC entry 218 (class 1259 OID 16421)
+-- Name: Ratings ; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Ratings " (
+);
+
+
+ALTER TABLE public."Ratings " OWNER TO postgres;
+
+--
+-- TOC entry 4857 (class 0 OID 0)
+-- Dependencies: 218
+-- Name: TABLE "Ratings "; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public."Ratings " IS 'تقييم للكتب ';
+
+
+--
+-- TOC entry 217 (class 1259 OID 16418)
+-- Name: loans ; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."loans " (
+);
+
+
+ALTER TABLE public."loans " OWNER TO postgres;
+
+--
+-- TOC entry 4858 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: TABLE "loans "; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public."loans " IS 'جدول يشرح الاعارات وتواريخها ومن المستعيرين';
+
+
+--
+-- TOC entry 4700 (class 2604 OID 16425)
+-- Name: Books book_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Books" ALTER COLUMN book_id SET DEFAULT nextval('public."Books_book_id_seq"'::regclass);
+
+
+--
+-- TOC entry 4844 (class 0 OID 16412)
+-- Dependencies: 215
+-- Data for Name: Books; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Books" (book_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 4845 (class 0 OID 16415)
+-- Dependencies: 216
+-- Data for Name: Members; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Members"  FROM stdin;
+\.
+
+
+--
+-- TOC entry 4847 (class 0 OID 16421)
+-- Dependencies: 218
+-- Data for Name: Ratings ; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Ratings "  FROM stdin;
+\.
+
+
+--
+-- TOC entry 4846 (class 0 OID 16418)
+-- Dependencies: 217
+-- Data for Name: loans ; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."loans "  FROM stdin;
+\.
+
+
+--
+-- TOC entry 4859 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: Books_book_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Books_book_id_seq"', 1, false);
+
+
+-- Completed on 2024-09-17 09:36:50
+
+--
+-- PostgreSQL database dump complete
+--
+
